@@ -1,5 +1,7 @@
 Haunt::Application.routes.draw do
   
-  resources :devices
+  resources :devices do
+    resources :waypoints
+  end
 
 end

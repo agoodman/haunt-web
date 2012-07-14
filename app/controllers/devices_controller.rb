@@ -1,10 +1,11 @@
 class DevicesController < ApplicationController
 
+  before_filter :assign_device, only: [ :show, :update, :destroy ]
+  
   respond_to :json
   
   # GET /devices/1.json
   def show
-    @device = Device.find(params[:id])
     respond_with(@device)
   end
 
@@ -18,17 +19,18 @@ class DevicesController < ApplicationController
 
   # PUT /devices/1.json
   def update
-    @device = Device.find(params[:id])
-
     @device.update_attributes(params[:device])
     respond_with(@device)
   end
 
   # DELETE /devices/1.json
   def destroy
-    @device = Device.find(params[:id])
     @device.destroy
     head :ok
   end
 
+  def assign_device
+    @device = Device.find_by_token(params[:id])
+  end
+  
 end

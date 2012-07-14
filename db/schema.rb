@@ -11,10 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120714211156) do
+ActiveRecord::Schema.define(:version => 20120714215910) do
 
   create_table "devices", :force => true do |t|
     t.string   "token"
+    t.float    "lat"
+    t.float    "lng"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "waypoints", :force => true do |t|
+    t.integer  "device_id"
     t.float    "lat"
     t.float    "lng"
     t.datetime "created_at", :null => false
