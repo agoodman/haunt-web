@@ -9,13 +9,17 @@ Users can then opt to share their phone number if they want to make contact.
 Usage:
 
 Register device
+
 POST /devices.json {"device":{"token":"abc123","lat":26.5,"lng":-82.3}}
 
 Query device
+
 GET /devices/abc123.json
 
 Post waypoint
+
 POST /devices/abc123/waypoints.json {"waypoint":{"lat":26.51,"lng":-82.31}}
 
 Query waypoints
+
 GET /devices/abc123/waypoints.json
