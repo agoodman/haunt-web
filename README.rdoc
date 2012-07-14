@@ -1,0 +1,7 @@
+Haunt is a tool to help you find options for carpooling.
+
+The iPhone app records your movements and sends that information (anonymously)  
+to the web service. Then, the web service analyses the data, identifies your
+commuting patterns, and attempts to find other users with similar commuting
+habits. It sends notification to both devices when it finds a matching pair.
+Users can then opt to share their phone number if they want to make contact.
