@@ -4,6 +4,11 @@ class WaypointsController < ApplicationController
   
   respond_to :json
   
+  # GET /devices/1/waypoints.json
+  def index
+    respond_with(@waypoints = @device.waypoints)
+  end
+  
   # POST /devices/1/waypoints.json
   def create
     @waypoint = Waypoint.new(params[:waypoint])
@@ -12,7 +17,7 @@ class WaypointsController < ApplicationController
     @waypoint.save
     respond_with(@device,@waypoint)
   end
-
+  
   def assign_device
     @device = Device.find_by_token(params[:device_id])
   end
