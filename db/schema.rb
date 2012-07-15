@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120714215910) do
+ActiveRecord::Schema.define(:version => 20120715160031) do
 
   create_table "devices", :force => true do |t|
     t.string   "token"
@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(:version => 20120714215910) do
     t.integer  "device_id"
     t.float    "lat"
     t.float    "lng"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.datetime "measured_at"
   end
 
 end

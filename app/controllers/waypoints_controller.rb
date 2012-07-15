@@ -6,7 +6,11 @@ class WaypointsController < ApplicationController
   
   # GET /devices/1/waypoints.json
   def index
-    respond_with(@waypoints = @device.waypoints)
+    @waypoints = Waypoint.where(device_id: @device.id).order('created_at desc')
+    # respond_to do |format|
+    #   format.json { render json: @waypoints }
+    # end
+    respond_with(@waypoints)
   end
   
   # POST /devices/1/waypoints.json
@@ -20,6 +24,9 @@ class WaypointsController < ApplicationController
   
   def assign_device
     @device = Device.find_by_token(params[:device_id])
+    if @device.nil?
+      @device = Device.create(token: params[:device_id], lat: params[:waypoint][:lat], lng: params[:waypoint][:lng])
+    end
   end
   
 end

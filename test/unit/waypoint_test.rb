@@ -6,5 +6,6 @@ class WaypointTest < ActiveSupport::TestCase
   should validate_presence_of :device_id
   should validate_presence_of :lat
   should validate_presence_of :lng
+  should validate_presence_of :measured_at
   
 end
