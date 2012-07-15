@@ -35,6 +35,8 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 group :test do
+  gem 'sqlite3'
+
 	gem 'shoulda'
 	gem 'factory_girl_rails'
 end
