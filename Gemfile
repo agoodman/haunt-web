@@ -41,7 +41,12 @@ group :test do
 	gem 'factory_girl_rails'
 end
 
-group :production do
-  gem 'mysql2'
-  gem 'thin'
+group :development do
+	gem 'sqlite3'
 end
+
+group :production do
+	gem 'pg'
+	gem 'thin'
+end
+
