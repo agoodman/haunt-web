@@ -4,6 +4,13 @@ class DevicesController < ApplicationController
   
   respond_to :json
   
+  def index
+    @devices = Device.scoped.limit(10)
+    respond_to do |format|
+      format.html
+    end
+  end
+  
   # GET /devices/1.json
   def show
     respond_with(@device)
