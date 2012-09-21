@@ -1,6 +1,6 @@
 class DevicesController < ApplicationController
 
-  before_filter :assign_device, only: [ :show, :update, :destroy ]
+  before_filter :assign_device, only: [ :show, :update, :destroy, :nearby ]
   
   respond_to :json
   
@@ -29,6 +29,14 @@ class DevicesController < ApplicationController
     head :ok
   end
 
+  # GET /devices/1/nearby.json
+  def nearby
+    @device_count = Device.near(@device).count
+    respond_to do |format|
+      format.json { render json: { device_count: @device_count } }
+    end
+  end
+  
   def assign_device
     @device = Device.find_by_token(params[:id])
   end
